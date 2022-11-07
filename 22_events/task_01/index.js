@@ -25,11 +25,10 @@ btnClear.onclick = () => handleClickClear();
 const btnHandlersAttach = document.querySelector('.attach-handlers-btn');
 function handleClickAttach() {
   elemDiv.addEventListener('click', logGreenDiv);
-  elemP.addEventListener('click', logGreenP);
-  elemSpan.addEventListener('click', logGreenSpan);
-
   elemDiv.addEventListener('click', logGreyDiv, true);
+  elemP.addEventListener('click', logGreenP);
   elemP.addEventListener('click', logGreyP, true);
+  elemSpan.addEventListener('click', logGreenSpan);
   elemSpan.addEventListener('click', logGreySpan, true);
 }
 // btnHandlersAttach.addEventListener('click', handleClickAttach);
