@@ -48,4 +48,4 @@ function handleClickRemove() {
 // btnHandlersRemove.addEventListener('click', handleClickRemove);
 btnHandlersRemove.onclick = () => handleClickRemove();
 
-handleClickAttach();
+// handleClickAttach();
