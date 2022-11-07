@@ -22,30 +22,30 @@ function handleClickClear() {
 // btnClear.addEventListener('click', handleClickClear);
 btnClear.onclick = () => handleClickClear();
 
-const btnHandlersAttach = document.querySelector('.attach-handlers-btn');
-function handleClickAttach() {
-  elemDiv.addEventListener('click', logGreenDiv);
-  elemP.addEventListener('click', logGreenP);
-  elemSpan.addEventListener('click', logGreenSpan);
+// const btnHandlersAttach = document.querySelector('.attach-handlers-btn');
+// function handleClickAttach() {
+//   elemDiv.addEventListener('click', logGreenDiv);
+//   elemP.addEventListener('click', logGreenP);
+//   elemSpan.addEventListener('click', logGreenSpan);
 
-  elemDiv.addEventListener('click', logGreyDiv, true);
-  elemP.addEventListener('click', logGreyP, true);
-  elemSpan.addEventListener('click', logGreySpan, true);
-}
-// btnHandlersAttach.addEventListener('click', handleClickAttach);
-btnHandlersAttach.onclick = () => handleClickAttach();
-
-// const btnHandlersRemove = document.querySelector('.remove-handlers-btn');
-// function handleClickRemove() {
-//   elemDiv.removeEventListener('click', logGreenDiv);
-//   elemP.removeEventListener('click', logGreenP);
-//   elemSpan.removeEventListener('click', logGreenSpan);
-
-//   elemDiv.removeEventListener('click', logGreyDiv, true);
-//   elemP.removeEventListener('click', logGreyP, true);
-//   elemSpan.removeEventListener('click', logGreySpan, true);
+//   elemDiv.addEventListener('click', logGreyDiv, true);
+//   elemP.addEventListener('click', logGreyP, true);
+//   elemSpan.addEventListener('click', logGreySpan, true);
 // }
-// // btnHandlersRemove.addEventListener('click', handleClickRemove);
-// btnHandlersRemove.onclick = () => handleClickRemove();
+// // btnHandlersAttach.addEventListener('click', handleClickAttach);
+// btnHandlersAttach.onclick = () => handleClickAttach();
+
+const btnHandlersRemove = document.querySelector('.remove-handlers-btn');
+function handleClickRemove() {
+  elemDiv.removeEventListener('click', logGreenDiv);
+  elemP.removeEventListener('click', logGreenP);
+  elemSpan.removeEventListener('click', logGreenSpan);
+
+  elemDiv.removeEventListener('click', logGreyDiv, true);
+  elemP.removeEventListener('click', logGreyP, true);
+  elemSpan.removeEventListener('click', logGreySpan, true);
+}
+// btnHandlersRemove.addEventListener('click', handleClickRemove);
+btnHandlersRemove.onclick = () => handleClickRemove();
 
 handleClickAttach();
