@@ -31,7 +31,10 @@ function handleClickAttach() {
   elemP.addEventListener('click', logGreyP, true);
   elemSpan.addEventListener('click', logGreySpan, true);
 }
-btnHandlersAttach.addEventListener('click', handleClickAttach);
+// btnHandlersAttach.addEventListener('click', handleClickAttach);
+btnHandlersAttach.onclick = function () {
+  handleClickAttach();
+};
 
 const btnHandlersRemove = document.querySelector('.remove-handlers-btn');
 function handleClickRemove() {
@@ -44,7 +47,6 @@ function handleClickRemove() {
   elemSpan.removeEventListener('click', logGreySpan, true);
 }
 // btnHandlersRemove.addEventListener('click', handleClickRemove);
-
 btnHandlersRemove.onclick = function () {
   handleClickRemove();
 };
