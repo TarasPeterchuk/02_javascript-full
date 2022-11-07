@@ -1,5 +1,5 @@
-const inputText = document.querySelector('.text-input');
+const inputElem = document.querySelector('.text-input');
 function inputToConsole() {
-  console.log(inputText.value);
+  console.log(inputElem.value);
 }
-inputText.addEventListener('keyup', inputToConsole);
+inputElem.addEventListener('keyup', inputToConsole);
