@@ -43,6 +43,9 @@ function handleClickRemove() {
   elemP.removeEventListener('click', logGreyP, true);
   elemSpan.removeEventListener('click', logGreySpan, true);
 }
-btnHandlersRemove.addEventListener('click', handleClickRemove);
+// btnHandlersRemove.addEventListener('click', handleClickRemove);
 
+btnHandlersRemove.onclick = function () {
+  handleClickRemove();
+};
 handleClickAttach();
