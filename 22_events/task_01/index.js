@@ -8,12 +8,12 @@ const logTarget = (text, color) => {
 };
 
 const logGreenDiv = logTarget.bind(null, 'div', 'green');
-const logGreenP = logTarget.bind(null, 'P', 'green');
-const logGreenSpan = logTarget.bind(null, 'SPAN', 'green');
+const logGreenP = logTarget.bind(null, 'p', 'green');
+const logGreenSpan = logTarget.bind(null, 'span', 'green');
 
 const logGreyDiv = logTarget.bind(null, 'div', 'grey');
-const logGreyP = logTarget.bind(null, 'P', 'grey');
-const logGreySpan = logTarget.bind(null, 'SPAN', 'grey');
+const logGreyP = logTarget.bind(null, 'p', 'grey');
+const logGreySpan = logTarget.bind(null, 'span', 'grey');
 
 function handleClickClear() {
   eventsListElem.innerHTML = '';
