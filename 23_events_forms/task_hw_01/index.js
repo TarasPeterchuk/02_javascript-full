@@ -34,6 +34,7 @@ const renderTasks = tasksList => {
     });
 
   listElem.append(...tasksElems);
+
   const tasksDom = document.querySelectorAll('.list__item-checkbox');
   const changeStatus = event => {
     const taskId = Number(event.target.dataset.id);
@@ -49,8 +50,6 @@ const renderTasks = tasksList => {
   tasksDom.forEach(checkEl => checkEl.addEventListener('click', changeStatus));
 };
 
-renderTasks(tasks);
-
 const createBtn = document.querySelector('.create-task-btn');
 
 const createListEl = () => {
@@ -63,3 +62,5 @@ const createListEl = () => {
   }
 };
 createBtn.addEventListener('click', createListEl);
+
+renderTasks(tasks);
