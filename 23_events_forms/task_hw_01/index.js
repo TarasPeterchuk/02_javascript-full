@@ -1,52 +1,65 @@
-const generateNumbersRange = (from, to) => {
-  const result = [];
-  for (let i = from; i <= to; i += 1) {
-    result.push(i);
-  }
-  return result;
+const tasks = [
+  { text: 'Buy milk', done: false },
+  { text: 'Pick up Tom from airport', done: false },
+  { text: 'Visit party', done: false },
+  { text: 'Visit doctor', done: true },
+  { text: 'Buy meat', done: true },
+];
+
+const listElem = document.querySelector('.list');
+
+const renderTasks = tasksList => {
+  tasks.reduce((acc, el) => {
+    el.id = acc;
+    return (acc += 1);
+  }, 0);
+  listElem.innerHTML = '';
+  const tasksElems = tasksList
+    .sort((a, b) => a.done - b.done)
+    .map(({ text, done, id }) => {
+      const listItemElem = document.createElement('li');
+      listItemElem.classList.add('list__item');
+      const checkbox = document.createElement('input');
+      checkbox.setAttribute('type', 'checkbox');
+      checkbox.checked = done;
+      checkbox.classList.add('list__item-checkbox');
+      checkbox.dataset.id = id;
+
+      if (done) {
+        listItemElem.classList.add('list__item_done');
+      }
+      listItemElem.append(checkbox, text);
+
+      return listItemElem;
+    });
+
+  listElem.append(...tasksElems);
+  const tasksDom = document.querySelectorAll('.list__item-checkbox');
+  const changeStatus = event => {
+    const taskId = Number(event.target.dataset.id);
+    const arraySearch = tasks.find(el => el.id == taskId);
+    console.log(arraySearch);
+    if (arraySearch.done === true) {
+      arraySearch.done = false;
+    } else {
+      arraySearch.done = true;
+    }
+    renderTasks(tasks);
+  };
+  tasksDom.forEach(checkEl => checkEl.addEventListener('click', changeStatus));
 };
 
-const getLineSeats = () => {
-  return generateNumbersRange(1, 10)
-    .map(
-      seatNumber => `
-  <div class='sector__seat' data-seat-number='${seatNumber}'></div>`,
-    )
-    .join('');
-};
+renderTasks(tasks);
 
-const getSectorLines = () => {
-  const seatsString = getLineSeats();
-  return generateNumbersRange(1, 10)
-    .map(
-      lineNumber => `
-  <div class='sector__line' data-line-number='${lineNumber}'>${seatsString}</div>
-  `,
-    )
-    .join('');
-};
-const arenaElem = document.querySelector('.arena');
-const renderArena = () => {
-  const linesString = getSectorLines();
-  const sectorsString = generateNumbersRange(1, 3)
-    .map(
-      sectorNumber => `
-  <div class='sector' data-sector-number='${sectorNumber}'>${linesString}</div>
-  `,
-    )
-    .join('');
-  arenaElem.innerHTML = sectorsString;
-};
-const onSeatSelect = event => {
-  const isSeat = event.target.classList.contains('sector__seat');
-  if (!isSeat) {
-    return;
+const createBtn = document.querySelector('.create-task-btn');
+
+const createListEl = () => {
+  const taskInput = document.querySelector('.task-input');
+  if (taskInput.value !== '') {
+    let obj = { text: taskInput.value, done: false };
+    tasks.push(obj);
+    taskInput.value = '';
+    renderTasks(tasks);
   }
-  const seatNumber = event.target.dataset.seatNumber;
-  const lineNumber = event.target.closest('.sector__line').dataset.lineNumber;
-  const sectorNumber = event.target.closest('.sector').dataset.sectorNumber;
-  const selectedSeatElem = document.querySelector('.board__selected-seat');
-  selectedSeatElem.textContent = `S ${sectorNumber} - L ${lineNumber} - S ${seatNumber}`;
 };
-arenaElem.addEventListener('click', onSeatSelect);
-renderArena();
+createBtn.addEventListener('click', createListEl);
