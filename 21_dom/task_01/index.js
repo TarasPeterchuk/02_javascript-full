@@ -13,7 +13,7 @@ const tasks = [
  * @return {undefined}
  */
 const renderTasks = tasksList => {
-  const lestElem = document.querySelector('.list');
+  const listElem = document.querySelector('.list');
   const listItemsElems = tasksList
     .sort((a, b) => a.done - b.done)
     .map(({ text, done }) => {
@@ -29,6 +29,6 @@ const renderTasks = tasksList => {
       listItemElem.append(checkboxElem, text);
       return listItemElem;
     });
-  lestElem.append(...listItemsElems);
+  listElem.append(...listItemsElems);
 };
 renderTasks(tasks);
