@@ -22,18 +22,18 @@ function handleClickClear() {
 // btnClear.addEventListener('click', handleClickClear);
 btnClear.onclick = () => handleClickClear();
 
-// const btnHandlersAttach = document.querySelector('.attach-handlers-btn');
-// function handleClickAttach() {
-//   elemDiv.addEventListener('click', logGreenDiv);
-//   elemP.addEventListener('click', logGreenP);
-//   elemSpan.addEventListener('click', logGreenSpan);
+const btnHandlersAttach = document.querySelector('.attach-handlers-btn');
+function handleClickAttach() {
+  elemDiv.addEventListener('click', logGreenDiv);
+  elemP.addEventListener('click', logGreenP);
+  elemSpan.addEventListener('click', logGreenSpan);
 
-//   elemDiv.addEventListener('click', logGreyDiv, true);
-//   elemP.addEventListener('click', logGreyP, true);
-//   elemSpan.addEventListener('click', logGreySpan, true);
-// }
-// // btnHandlersAttach.addEventListener('click', handleClickAttach);
-// btnHandlersAttach.onclick = () => handleClickAttach();
+  elemDiv.addEventListener('click', logGreyDiv, true);
+  elemP.addEventListener('click', logGreyP, true);
+  elemSpan.addEventListener('click', logGreySpan, true);
+}
+// btnHandlersAttach.addEventListener('click', handleClickAttach);
+btnHandlersAttach.onclick = () => handleClickAttach();
 
 const btnHandlersRemove = document.querySelector('.remove-handlers-btn');
 function handleClickRemove() {
