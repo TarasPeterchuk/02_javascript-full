@@ -1,33 +1,25 @@
-// calc(3).add(2).mult(4).div(10).subtract(5).result();
-const calc = initValue => {
-  let result = initValue;
+'use strict';
 
-  const calculator = {
-    add(val) {
-      result += val;
-      return this;
-    },
-    mult(val) {
-      result *= val;
-      return this;
-    },
-    mult(val) {
-      result *= val;
-      return this;
-    },
-    div(val) {
-      result /= val;
-      return this;
-    },
-    subtract(val) {
-      result -= val;
-      return this;
-    },
-    result() {
-      return result;
-    },
-  };
-  return calculator;
+/**
+ * @return {undefined}
+ */
+export const printing = () => {
+  console.log(1);
+
+  setTimeout(function () {
+    console.log(5);
+  }, 1000);
+
+  console.log(2);
+
+  setTimeout(function () {
+    console.log(4);
+  }, 0);
+
+  setTimeout(function () {
+    console.log(6);
+  }, 2000);
+
+  console.log(3);
 };
-const result = calc(3).result();
-console.log(result);
+printing();
