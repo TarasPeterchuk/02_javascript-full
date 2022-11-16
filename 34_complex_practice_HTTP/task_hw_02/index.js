@@ -19,13 +19,17 @@ const onFormSubmit = event => {
     .then(response => response.text())
     .then(data => alert(data));
   formElem.reset();
-  buttonElem.disabled = true;
+  buttonElem.setAttribute('disabled', true);
 };
 
 formElem.addEventListener('submit', onFormSubmit);
 
-// formElem.addEventListener('input', () => {
-//   if (formElem.reportValidity()) {
-//     buttonElem.disabled = false;
-//   }
-// });
+const changeButtonStatus = () => {
+  if (formElem.reportValidity()) {
+    buttonElem.removeAttribute('disabled', true);
+  } else {
+    buttonElem.setAttribute('disabled', true);
+  }
+};
+
+formElem.addEventListener('input', changeButtonStatus);
