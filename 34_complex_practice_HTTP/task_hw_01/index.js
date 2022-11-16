@@ -1,35 +1,72 @@
-const baseUrl = 'https://5e5cf5eb97d2ea0014796f01.mockapi.io/api/v1/tasks';
+const baseUrl = 'https://6374b55948dfab73a4e65042.mockapi.io/todo_list/users/';
+export function getUsersList() {
+  return fetch(baseUrl).then(response => response.json());
+}
 
-// const renderTaskList = taskListsData => {
-//   console.log(taskListsData);
-//   return taskListsData;
-// };
-// const fetchTaskList = () => {
-//   return fetch(baseUrl).then(response => response.json());
-// };
+export function getUserById(userId) {
+  return fetch(`${baseUrl}/${userId}`).then(response => response.json());
+}
 
-export function getTasksList() {
-  return fetch(baseUrl).then(response => {
-    console.log(response);
-    response.json();
+export function createUser(userData) {
+  return fetch(baseUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    body: JSON.stringify(userData),
   });
 }
-export function getTaskById(taskId) {
-  return fetch(baseUrl.concat(`/${taskId}`)).then(response => response.json());
+
+export function deleteUser(userId) {
+  return fetch(`${baseUrl}/${userId}`, {
+    method: 'DELETE',
+  });
 }
 
-getTasksList().then(tasksList => {
-  console.log(tasksList);
-});
-// ==> [ {'id':'1', 'isDone':false ... }, {'id':'2', 'isDone':false ... }, ...]
+export function updateUser(userId, userData) {
+  return fetch(`${baseUrl}/${userId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    body: JSON.stringify(userData),
+  });
+}
 
-// export function getTaskById(taskId) {
-//   return getTasksList().then(userData => {
-//     const resultArr = userData;
-//     return resultArr.filter(el => el.id === taskId);
+// examples
+// getUsersList().then(users => {
+//   console.log(users); // array of the user objects [{'id':'1', 'firstName':'Grayce' ... }, {'id':'2', 'firstName':'Ara' ... }, ...]
+// });
+
+// // getUserById('2').then(userData => {
+// //   console.log(userData); // {'id':'2', 'firstName':'Ara' ... }
+// // });
+
+// const newUserData = {
+//   email: 'cool@email.com',
+//   firstName: 'Iron',
+//   lastName: 'Man',
+//   age: 42,
+// };
+
+// // createUser(newUserData).then(() => {
+// //   console.log('User created');
+// // });
+
+// const updatedUserData = {
+//   email: 'new@email.com',
+//   firstName: 'John',
+//   lastName: 'Doe',
+//   age: 17,
+// };
+
+// // updateUser('1', updatedUserData).then(() => {
+// //   console.log('User updated');
+// // });
+
+// deleteUser('8').then(() => {
+//   console.log('User deleted');
+//   getUsersList().then(users => {
+//     console.log(users); // array of the user objects [{'id':'1', 'firstName':'Grayce' ... }, {'id':'2', 'firstName':'Ara' ... }, ...]
 //   });
-// }
-
-getTaskById('1').then(taskData => {
-  console.log(taskData); // ==> { 'id': '2', 'text': 'District Communications Specialist', 'isDone': false, 'createdDate': 1651499052, 'finishedDate': 1651499052 }
-});
+// });
