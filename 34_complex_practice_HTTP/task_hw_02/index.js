@@ -15,7 +15,7 @@ function createUser(userData) {
 
 const onFormSubmit = event => {
   event.preventDefault();
-  createUser(Object.fromEntries(new FormData(formElem))).then(response => alert(response));
+  createUser(Object.fromEntries(new FormData(formElem))).then(response => alert(response.json()));
   // .then(data => alert(data));
   formElem.reset();
   buttonElem.setAttribute('disabled', true);
