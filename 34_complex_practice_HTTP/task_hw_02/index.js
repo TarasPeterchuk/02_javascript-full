@@ -24,8 +24,8 @@ const onFormSubmit = event => {
 
 formElem.addEventListener('submit', onFormSubmit);
 
-formElem.addEventListener('input', () => {
-  if (formElem.reportValidity()) {
-    buttonElem.disabled = false;
-  }
-});
+// formElem.addEventListener('input', () => {
+//   if (formElem.reportValidity()) {
+//     buttonElem.disabled = false;
+//   }
+// });
