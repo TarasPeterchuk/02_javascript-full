@@ -24,7 +24,7 @@ const onSearchUser = async () => {
   } catch (err) {
     alert(err.message);
   } finally {
-    hideSpinaner();
+    hideSpinner();
   }
 };
 showUserBtnElem.addEventListener('click', onSearchUser);
