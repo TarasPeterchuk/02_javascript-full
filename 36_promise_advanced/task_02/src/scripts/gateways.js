@@ -12,3 +12,14 @@ export const fetchRepositories = async url => {
   }
   throw new Error('Failed to load data');
 };
+
+try {
+  const userData = await fetchUserData(userName);
+  renderUserData(userData);
+  const reposList = await fetchRepositories(userData.repos_url);
+  renderRepos(reposList);
+} catch (err) {
+  alert(err.message);
+} finally {
+  hideSpinner();
+}
